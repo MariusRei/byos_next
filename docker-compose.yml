@@ -22,8 +22,7 @@ services:
       retries: 5
 
   byos-next:
-    build: .
-    container_name: byos_app
+    image: ghcr.io/mariusrei/byos_next:latest
     ports:
       - "3000:3000"
     environment:
