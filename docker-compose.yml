@@ -23,6 +23,8 @@ services:
 
   byos-next:
     image: ghcr.io/usetrmnl/byos_next:latest
+    command: >
+      sh -c "pnpm db:migrate && pnpm start"
     ports:
       - "3000:3000"
     environment:
