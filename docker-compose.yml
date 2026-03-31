@@ -1,3 +1,5 @@
+version: '3.3'
+
 services:
   postgres:
     image: postgres:16-alpine
@@ -25,6 +27,8 @@ services:
       - "3000:3000"
     environment:
       - DATABASE_URL=postgres://postgres:${POSTGRES_PASSWORD}@postgres:5432/byos_db?sslmode=disable
+      - BETTER_AUTH_SECRET=${BETTER_AUTH_SECRET}
+      - BETTER_AUTH_URL=${BETTER_AUTH_URL}
     depends_on:
       postgres:
         condition: service_healthy
